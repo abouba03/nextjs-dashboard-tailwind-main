@@ -9,6 +9,7 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
+import { data } from '@/data/data';
 
 ChartJS.register(
   CategoryScale,
@@ -21,37 +22,44 @@ ChartJS.register(
 
 const BarChart = () => {
   const [chartData, setChartData] = useState({
-    datasets: [],
+    labels: ['Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat', 'Sun'],
+    datasets: [
+      {
+        label: 'Sales $',
+        data: [],
+        borderColor: 'rgb(53, 162, 235)',
+        backgroundColor: 'rgb(53, 162, 235, 0.4)',
+      },
+    ],
   });
 
-  const [chartOptions, setChartOptions] = useState({});
+  const [chartOptions, setChartOptions] = useState({
+    plugins: {
+      legend: {
+        position: 'top',
+      },
+      title: {
+        display: true,
+        text: 'Daily Revenue',
+      },
+    },
+    maintainAspectRatio: false,
+    responsive: true,
+  });
 
   useEffect(() => {
-    setChartData({
-        labels: ['Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat', 'Sun'],
-        datasets: [
-            {
-                label: 'Sales $',
-                data: [18127, 22201, 19490, 17938, 24182, 17842, 22475],
-                borderColor: 'rgb(53, 162, 235)',
-                backgroundColor: 'rgb(53, 162, 235, 0.4',
-              }, 
-        ]
-    })
-    setChartOptions({
-        plugins: {
-            legend: {
-                position: 'top',
-            },
-            title: {
-                display: true,
-                text: 'Daily Revenue'
-            }
+    const totals = data.map((item) => item.total);
+    
+    setChartData((prevChartData) => ({
+      ...prevChartData,
+      datasets: [
+        {
+          ...prevChartData.datasets[0],
+          data: totals,
         },
-        maintainAspectRatio: false,
-        responsive: true
-    })
-  }, [])
+      ],
+    }));
+  }, []);
 
   return (
     <>
