@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { RxSketchLogo, RxDashboard, RxPerson } from 'react-icons/rx';
+import { IoIosInformationCircleOutline } from "react-icons/io";
 import { HiOutlineShoppingBag } from 'react-icons/hi';
 import { FiSettings } from 'react-icons/fi';
 
@@ -16,7 +17,7 @@ const Sidebar = ({ children }) => {
             </div>
           </Link>
           <span className='border-b-[1px] border-gray-200 w-full p-2'></span>
-          <Link href='/'>
+          <Link href='/dashboard'>
             <div className='bg-gray-100 hover:bg-gray-200 cursor-pointer my-4 p-3 rounded-lg inline-block'>
               <RxDashboard size={20} />
             </div>
@@ -31,9 +32,9 @@ const Sidebar = ({ children }) => {
               <HiOutlineShoppingBag size={20} />
             </div>
           </Link>
-          <Link href='/'>
+          <Link href='/info'>
             <div className='bg-gray-100 hover:bg-gray-200 cursor-pointer my-4 p-3 rounded-lg inline-block'>
-              <FiSettings size={20} />
+              <IoIosInformationCircleOutline size={20} />
             </div>
           </Link>
         </div>
