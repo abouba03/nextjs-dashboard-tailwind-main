@@ -11,8 +11,11 @@ export default function Home() {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <main className='bg-gray-100 min-h-screen'>
-       
+      <main className='bg-gray-100 min-h-screen flex justify-center grid justify-items-center'>
+        <h1 className='text-center text-7xl font-bold my-20 text-gray-900'>
+          Кейс miriteam   (от Сбербанка!)
+        </h1>
+        
       </main>
     </>
   );

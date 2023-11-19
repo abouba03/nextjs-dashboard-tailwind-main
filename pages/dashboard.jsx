@@ -4,7 +4,9 @@ import Image from 'next/image';
 import Header from '../components/Header';
 import TopCards from '../components/TopCards';
 import BarChart from '../components/BarChart';
-import RecentOrders from '../components/RecentOrders';
+import BarChart2 from '../components/BarChart2';
+import BarChartPrAcq from '../components/BarChartPrAcq';
+import BarChartPrPKO from '../components/BarChartPrPKO';
 
 export default function Home() {
   return (
@@ -17,10 +19,22 @@ export default function Home() {
       </Head>
       <main className='bg-gray-100 min-h-screen'>
         <Header />
-        <TopCards />
-        <div className='p-4 grid md:grid-cols-3 grid-cols-1 gap-4'>
+        <div className='my-10'></div>
+        <h2 className=' font-bold text-center text-2xl'>Churn rate (коэффициент оттока) </h2>
+        <p className='mx-10'>
+        это процент подписчиков (например, на push-уведомления от сайта), которые отписались от канала коммуникации, отказались от услуг сервиса в течение определенного периода времени.
+        </p>
+        <div className='p-4 grid flex  gap-4 content-center text-center m-auto '>
           <BarChart />
-          <RecentOrders />
+          <BarChart2 />
+        </div>
+        <h2 className=' font-bold text-center text-2xl'>Retention marketing - процента выживаемости клиентов </h2>
+        <p className='mx-10 text-center'>Это комплекс методов по анализу возвращаемости, выявления причин оттока и выработки стратегий по удержанию пользователей.</p>
+        <div>
+          <div className='p-4 grid flex  gap-4 content-center text-center m-auto'>
+            <BarChartPrAcq />
+            <BarChartPrPKO />
+          </div>
         </div>
       </main>
     </>
